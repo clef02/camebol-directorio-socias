@@ -329,7 +329,7 @@ body.enter .hero-side{animation:heroIn .7s ease both .66s}
   .mk-head h2{font-size:19px}
 
   /* Toolbar móvil compacta: buscador → categorías → rubros. No sticky. */
-  .toolbar{position:static;padding:0;border:none;margin-bottom:12px}
+  .toolbar{position:relative;z-index:80;overflow:visible;padding:0;border:none;margin-bottom:12px}
   .tb-row{flex-direction:column;align-items:stretch;gap:11px}
   .search-wrap{max-width:none;order:-1}
   .search-wrap input{padding:9px 13px 9px 36px;font-size:13px;border-radius:10px;box-shadow:none}
@@ -341,10 +341,10 @@ body.enter .hero-side{animation:heroIn .7s ease both .66s}
   .tab{white-space:nowrap;flex:none;font-size:10.5px;padding:3px 0}
 
   /* Rubros: dropdown compacto en pantallas pequeñas */
-  .rubro-filter{margin-top:11px}
+  .rubro-filter{position:relative;z-index:100;margin-top:11px}
   .rubro-btn{width:100%;justify-content:space-between;border-radius:10px;padding:9px 12px;font-size:12px}
   .rubro-btn .rb-label{font-size:9.5px}
-  .rubro-menu{right:0;min-width:0;width:100%;max-height:52vh}
+  .rubro-menu{right:0;left:0;z-index:1000;min-width:0;width:100%;max-height:52vh;overflow-y:auto}
   .rubro-opt{font-size:12.5px;padding:9px 10px}
   .count{margin-bottom:13px;font-size:11px}
 
