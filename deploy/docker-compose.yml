@@ -1,0 +1,18 @@
+services:
+  camebol-directorio:
+    build: .
+    container_name: camebol-directorio
+    restart: unless-stopped
+    networks:
+      - traefik_proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik_proxy"
+      - "traefik.http.routers.camebol-directorio.rule=Host(`camebolsc.quimeracloud.com`)"
+      - "traefik.http.routers.camebol-directorio.entrypoints=websecure"
+      - "traefik.http.routers.camebol-directorio.tls.certresolver=myresolver"
+      - "traefik.http.services.camebol-directorio.loadbalancer.server.port=80"
+
+networks:
+  traefik_proxy:
+    external: true
